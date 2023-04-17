@@ -1,25 +1,3 @@
-<header class="header">
-
-<div class="header__top">
-    <div class="container-xl">
-        <div class="header__top-inner">
-            <div class="header___top-nav">
-                <a class="header__top-link" href="/">Главная</a>
-                <a class="header__top-link" href="/contacts">Контакты</a>
-                <a class="header__top-link" href="/paydeliver">Услуги и сервис</a>
-            </div>
-            <div class="header__top-signIn">
-                <div class="header__top-signInLink">
-                    <svg width="20" height="20">
-                        <use xlink:href="#header-top-user" fill='#ADAEB0'></use>
-                    </svg>
-                    <a href="/SignInUp"> <i class="fa fa-user-o" aria-hidden="true"></i> SignUp/SignIn </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="header__content">
     <div class="container-xl">
         <div class="header__content-inner">
