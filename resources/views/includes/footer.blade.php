@@ -1,3 +1,4 @@
+
 <footer class="footer">
 <div class="container-xl">
     <div class="footer__inner">
@@ -5,7 +6,7 @@
             <div class="col-xl-2">
                 <div class="header__content-logoWrapper">
                     <a class="header__content-logoLink footer__logo-link" href="#!">
-                        <img class="header__content-logo" src="./img/logo2.png" alt="Logo">
+                        <img class="header__content-logo" src="/img/logo2.png" alt="Logo">
                     </a>
                     <p class="footer__logo-text">Интернет-магазин музыкальных инструменов</p>
                 </div>
