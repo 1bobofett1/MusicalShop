@@ -3,7 +3,7 @@
         <div class="header__content-inner">
             <div class="header__content-logoWrapper">
                 <a class="header__content-logoLink" href="/">
-                    <img class="header__content-logo" src="./img/logo1.png" alt="Logo">
+                    <img class="header__content-logo" src="/img/logo1.png" alt="Logo">
                 </a>
             </div>
 
@@ -14,10 +14,10 @@
                 </span>
                 <div></div>
             </div>
-            <a class="header__content-phone" href="tel:+998 90 000 00 00">
+            <a class="header__content-phone" href="tel:+8 900 000 00 00">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <div>
-                    <span>+998 90 000 00 00</span>
+                    <span>+8 900 000 00 00</span>
                     <p>Связаться с нами</p>
                 </div>
             </a>

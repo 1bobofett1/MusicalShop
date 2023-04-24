@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/media.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
-
+    @yield('custom_css')
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
 </head>
