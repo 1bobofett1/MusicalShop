@@ -37,24 +37,44 @@
             <div class="menu">
                 <span class="mune__icon"></span>
             </div>
+
             <div class="header__bottom-nav">
 
                 <ul class="header__bottom-list">
-                    <span class="menu-close">&times;</span>
-                    <li class="header__bottom-item">
+                    
+                    <!-- <li class="hassubs">
                         <a class="header__bottom-menuLink" href="/catalog">
                             <svg width="12" height="10" fill="#553280">
                                 <use xlink:href='#header-bottom-menu'></use>
                             </svg>
                             Все категории
                         </a>
-                    </li>
+
+                        <a href="catalog.blade.php">Все категории</a>
+                        <ul>
+                            @foreach($categories as $category)
+                                <li><a href="catalog.blade.php">{{$category->title}}</a></li>
+                            @endforeach
+                        </ul>
+                    </li> -->
+                    <div class="hassubs-dropdown">
+                        <button class="hassubs-dropbtn">Все категории 
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="hassubs-dropdown-content">
+                            @foreach($categories as $category)
+                                <li><a href="{{route('showCategory',$category->alias)}}">{{$category->title}}</a></li>
+                            @endforeach
+                        </div>
+                    </div> 
+                    
                     <li class="header__bottom-item"><a class="header__bottom-link" href="/aboutus">О нас</a>
                     </li>
                     <li class="header__bottom-item"><a class="header__bottom-link"href="/paydeliver">Оплата и доставка</a>
                     </li>
                 </ul>
             </div>
+
             <div class="header__content-inputWrapper-mob">
                 <input class="header__content-input" type="text" placeholder="Поиск по товарам...">
                 <span>

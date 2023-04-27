@@ -59,7 +59,7 @@
     </div>
 
 
-<div class="container" style="padding: 100px 0px 270px 0px;">
+<div class="container" style="padding: 200px 0px 270px 0px;">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

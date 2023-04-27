@@ -35,9 +35,13 @@
                         <h4><a href="#">{{$product->title}}</a></h4>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus facilis eaque possimus itaque, deleniti quasi!</p>
                         <div class="product-bottom-details d-flex justify-content-between">
-                            <div class="product-price">
-                                <small>$499</small> ${{$product->price}}
-                            </div>
+                            @if($product->new_price != null)
+                                <div class="product-price">
+                                    <small>${{$product->price}}</small> ${{$product->new_price}}
+                                </div>
+                            @else
+                                <div class="product-price">${{$product->price}}</div>
+                            @endif
                             <div class="product-links">
                                 <a href="{{route('showProduct',['category',$product->id])}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                             </div>
@@ -47,8 +51,6 @@
             </div>
             @endforeach
         </div>
-    </div>
-     
-
+    </div>    
 </section>
 @endsection

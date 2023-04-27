@@ -239,10 +239,12 @@ body {
 .header__bottom-nav {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .header__bottom-list {
     display: flex;
+    align-items: center;
 }
 
 .header__bottom-item:not(:nth-child(2)) {
@@ -266,7 +268,7 @@ body {
 
 .header__bottom-link {
     font-family: 'Proxima Nova Bold', sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1;
     color: #323234;
 }
@@ -1095,4 +1097,54 @@ body {
     margin-left: 10px;
 }
 
-/* Карточки продукта */
+/* Всплывающие категории */
+
+.hassubs-dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.hassubs-dropdown .hassubs-dropbtn {
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    color: #323234;
+    background-color: inherit;
+    font-family: inherit;
+    margin-right: 30px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+}
+
+.hassubs-dropdown:hover .hassubs-dropbtn {
+    color: white;
+    background-color: rgb(3, 3, 3);
+}
+
+.hassubs-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    font-size: 20px;
+}
+
+.hassubs-dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.hassubs-dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.hassubs-dropdown:hover .hassubs-dropdown-content {
+    display: block;
+}
