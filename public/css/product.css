@@ -18,7 +18,7 @@ body
 	background: #FFFFFF;
 	color: #a5a5a5;
 }
-div
+div, form
 {
 	display: block;
 	position: relative;
@@ -239,10 +239,12 @@ Product Details
 .product_quantity_container
 {
 	margin-top: 48px;
+	display: flex;
 }
 
 .product_quantity
 {
+	margin-right: 30px;
 	display: inline-block;
 	width: 147px;
 	height: 61px;
@@ -405,4 +407,16 @@ Product Details
 .details_share ul li a i:hover
 {
 	color: #1b1b1b;
+}
+
+/* Кнопка btn */
+.btn
+{
+	width: 178px;
+	height: 61px;
+	background: none;
+	text-align: center;
+	border: solid 2px #1b1b1b;
+	overflow: hidden;
+	cursor: pointer;
 }

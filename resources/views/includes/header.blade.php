@@ -42,21 +42,6 @@
 
                 <ul class="header__bottom-list">
                     
-                    <!-- <li class="hassubs">
-                        <a class="header__bottom-menuLink" href="/catalog">
-                            <svg width="12" height="10" fill="#553280">
-                                <use xlink:href='#header-bottom-menu'></use>
-                            </svg>
-                            Все категории
-                        </a>
-
-                        <a href="catalog.blade.php">Все категории</a>
-                        <ul>
-                            @foreach($categories as $category)
-                                <li><a href="catalog.blade.php">{{$category->title}}</a></li>
-                            @endforeach
-                        </ul>
-                    </li> -->
                     <div class="hassubs-dropdown">
                         <button class="hassubs-dropbtn">Все категории 
                             <i class="fa fa-caret-down"></i>
@@ -87,4 +72,3 @@
     </div>
 </div>
 
-</header>

@@ -1148,3 +1148,22 @@ body {
 .hassubs-dropdown:hover .hassubs-dropdown-content {
     display: block;
 }
+
+.order__success{
+    background-color: rgb(181, 241, 132);
+    margin: auto;
+    height: 50px;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.order__warning{
+    background-color: rgb(238, 153, 104);
+    margin: auto;
+    height: 50px;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

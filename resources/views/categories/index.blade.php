@@ -88,8 +88,9 @@
                                         <div class="product-price">${{$product->price}}</div>
                                     @endif
                                     <div class="product-links">
-                                        <a href="{{route('showProduct',['category',$product->id])}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                        <a href="{{route('showProduct',[$product->category['alias'],$product->id])}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                                     </div>
+                                    @csrf
                              </div>
                             </div>
                         </div>

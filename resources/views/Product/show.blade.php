@@ -65,7 +65,14 @@
                                     <div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
                                 </div>
                             </div>
-                            <div class="button cart_button"><a href="#">Add to cart</a></div>
+
+                            <form action="{{route('basket-add', $item)}}" method="POST">
+                                <button type="submit" class="btn" role="button">Add to cart</button>
+                                {{-- <div class="button cart_button">
+                                    <a href="{{route('basket')}}">Add to cart</a>
+                                </div> --}}
+                                @csrf
+                            </form>
                         </div>
 
                         <!-- Share -->
@@ -84,5 +91,5 @@
 
         </div>
     </div>
-
+    
 @endsection

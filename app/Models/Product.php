@@ -15,4 +15,11 @@ class Product extends Model
     public function category(){
         return $this->belongsTo('App\Models\Category');
     }
+
+    public function getPriceForCount() {
+        if(!is_null($this->pivot)) {
+            return $this->pivot->count * $this->new_price;
+        }
+        return $this->new_price;
+    }
 }

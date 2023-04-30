@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/media.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
+    
     @yield('custom_css')
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
@@ -84,6 +85,13 @@
         @include('includes.header')
 
         <main class="py-4">
+            @if(session()->has('success'))
+                <p class="order__success">{{session()->get('success')}}</p>
+            @endif
+            @if(session()->has('warning'))
+                <p class="order__warning">{{session()->get('warning')}}</p>
+            @endif
+    
             @yield('content')
         </main>
 

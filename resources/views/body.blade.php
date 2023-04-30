@@ -7,7 +7,7 @@
 <section class="newProducts">
         <div class="container-xl">
             <div class="newProducts__inner">
-                <h2 class="newProducts__title default-title"><span class="default-title__before">Скидки</span></h2>
+                <h2 class="newProducts__title default-title"><span class="default-title__before">Все товары</span></h2>
             </div>
         </div>
     </section>
@@ -43,8 +43,9 @@
                                 <div class="product-price">${{$product->price}}</div>
                             @endif
                             <div class="product-links">
-                                <a href="{{route('showProduct',['category',$product->id])}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                <a href="{{route('showProduct',[$product->category['alias'] , $product->id])}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                             </div>
+                            @csrf
                         </div>
                     </div>
                 </div>
