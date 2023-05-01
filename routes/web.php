@@ -14,28 +14,38 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('body');
-// });
+Auth::routes([
+    'reset' => false,
+    'confirm' => false,
+    'verify' => false,
+]);
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::group([
+    'middleware' => 'auth',
+    // 'namespace' => 'Admin',
+    'prefix' =>'admin',
+], function(){
+    Route::group(['middleware' => 'is_admin'], function(){
+        Route::get('/orders', [App\Http\Controllers\Admin\OrderController::class, 'index'])->name('home');
+    });
 
-Auth::routes();
-
-Route::group(['middleware' => 'auth'], function(){
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('categories', '\App\Http\Controllers\Admin\CategoryController');
 });
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index1'])->name('body');
 
-Route::get('/basket', [App\Http\Controllers\BasketController::class, 'basket'])->name('basket');
-Route::get('/basket/place', [App\Http\Controllers\BasketController::class, 'basketPlace'])->name('basket-place');
+Route::group(['prefix' => 'basket',],function(){
+    Route::post('/add/{id}', [App\Http\Controllers\BasketController::class, 'basketAdd'])->name('basket-add');
 
-Route::post('/basket/add/{id}', [App\Http\Controllers\BasketController::class, 'basketAdd'])->name('basket-add');
-Route::post('/basket/remove/{id}', [App\Http\Controllers\BasketController::class, 'basketRemove'])->name('basket-remove');
-Route::post('/basket/place', [App\Http\Controllers\BasketController::class, 'basketConfirm'])->name('basket-confirm');
+    Route::group([
+        'middleware' => 'basket_not_empty',
+    ], function() {
+        Route::get('/', [App\Http\Controllers\BasketController::class, 'basket'])->name('basket');
+        Route::get('/place', [App\Http\Controllers\BasketController::class, 'basketPlace'])->name('basket-place');
+        Route::post('/remove/{id}', [App\Http\Controllers\BasketController::class, 'basketRemove'])->name('basket-remove');
+        Route::post('/place', [App\Http\Controllers\BasketController::class, 'basketConfirm'])->name('basket-confirm');
+    });
+});
 
 Route::get('/{cat}', [App\Http\Controllers\ProductController::class, 'showCategory'])->name('showCategory');
 

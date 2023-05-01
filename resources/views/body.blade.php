@@ -33,7 +33,7 @@
                     </div>
                     <div class="product-details">
                         <h4><a href="#">{{$product->title}}</a></h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus facilis eaque possimus itaque, deleniti quasi!</p>
+                        <p>{{$product->description}}</p>
                         <div class="product-bottom-details d-flex justify-content-between">
                             @if($product->new_price != null)
                                 <div class="product-price">

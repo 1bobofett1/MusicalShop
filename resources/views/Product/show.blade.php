@@ -68,9 +68,6 @@
 
                             <form action="{{route('basket-add', $item)}}" method="POST">
                                 <button type="submit" class="btn" role="button">Add to cart</button>
-                                {{-- <div class="button cart_button">
-                                    <a href="{{route('basket')}}">Add to cart</a>
-                                </div> --}}
                                 @csrf
                             </form>
                         </div>
