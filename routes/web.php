@@ -30,6 +30,7 @@ Route::group([
     });
 
     Route::resource('categories', '\App\Http\Controllers\Admin\CategoryController');
+    Route::resource('products', '\App\Http\Controllers\Admin\ProductController');
 });
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index1'])->name('body');

@@ -17,16 +17,16 @@
                 <!-- Product Image -->
                 <div class="col-lg-6">
                     <div class="details_image">
-                        @php
+                        {{-- @php
                             $image = '';
                             if(count($item->images) > 0){
                                 $image = $item->images[0]['img'];
                             } else {
                                 $image = 'no_image.png';
                             }
-                        @endphp
+                        @endphp --}}
                         <div class="details_image_large">
-                            <img src="/{{$image}}" alt="{{$item->title}}">
+                            <img src="{{Storage::url($item->img)}}" alt="{{$item->title}}">
                         </div>
                     </div>
                 </div>

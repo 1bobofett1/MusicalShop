@@ -31,7 +31,7 @@
                         @endisset
                         @csrf
                         <div class="input-group row">
-                            <label for="title" class="col-sm-2 col-form-label">Код: </label>
+                            <label for="title" class="col-sm-2 col-form-label">Название: </label>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" name="title" id="title"
                                        value="@isset($category){{ $category->title }}@endisset">
@@ -39,7 +39,7 @@
                         </div>
                         <br>
                         <div class="input-group row">
-                            <label for="desc" class="col-sm-2 col-form-label">Название: </label>
+                            <label for="desc" class="col-sm-2 col-form-label">Описание: </label>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" name="desc" id="desc"
                                        value="@isset($category){{ $category->desc }}@endisset">
@@ -47,7 +47,7 @@
                         </div>
                         <br>
                         <div class="input-group row">
-                            <label for="alias" class="col-sm-2 col-form-label">Описание: </label>
+                            <label for="alias" class="col-sm-2 col-form-label">Алиас: </label>
                             <div class="col-sm-6">
 							<textarea name="alias" id="alias" cols="72"
                                       rows="7">@isset($category){{ $category->alias }}@endisset</textarea>

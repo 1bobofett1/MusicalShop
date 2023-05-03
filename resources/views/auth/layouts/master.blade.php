@@ -45,7 +45,7 @@
                     <div class="header___top-nav">
                         <a class="header__top-link" href="/">Главная</a>
                         <a class="header__top-link" href="{{route('categories.index')}}">Категории</a>
-                        <a class="header__top-link" href="/paydeliver">Товары</a>
+                        <a class="header__top-link" href="{{ route('products.index') }}">Товары</a>
                     </div>
                 </ul>
 

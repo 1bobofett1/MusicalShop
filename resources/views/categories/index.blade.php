@@ -63,18 +63,18 @@
             <div class="row">
                 @foreach($cat->products as $product)
                     <!-- Product -->
-                    @php
+                    {{-- @php
                         $image = '';
                         if(count($product->images)>0){
                             $image = $product->images[0]['img'];
                         } else {
                             $image = 'no-image.png';
                         }
-                    @endphp
+                    @endphp --}}
                     <div class="cardnum col-lg-3 col-sm-6">
                         <div class="product-card">
                             <div class="product-thumb">
-                                <a href="#"><img src="{{$image}}" alt="{{$product->title}}"></a>
+                                <a href="#"><img src="{{Storage::url($product->img)}}" alt="{{$product->title}}"></a>
                             </div>
                             <div class="product-details">
                                 <h4><a href="#">{{$product->title}}</a></h4>
