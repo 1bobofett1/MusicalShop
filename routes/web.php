@@ -52,3 +52,5 @@ Route::get('/{cat}', [App\Http\Controllers\ProductController::class, 'showCatego
 
 Route::get('/{cat}/{product_id}', [App\Http\Controllers\ProductController::class, 'show'])->name('showProduct');
 
+
+

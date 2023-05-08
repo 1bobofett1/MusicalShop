@@ -30,16 +30,16 @@
                 <td>
                     
                     <a href="{{ route('showProduct', [$product->category['alias'], $product->id]) }}">
-                        @php
+                        <!-- @php
                             $image = '';
                             if(count($product->images) > 0){
                                 $image = $product->images[0]['img'];
                             } else {
                                 $image = 'no_image.png';
                             }
-                        @endphp
+                        @endphp -->
                         <div class="details_image_large">
-                            <img height="90px" src="/{{$image}}" alt="{{$product->title}}">
+                            <img height="90px" src="{{Storage::url($product->img)}}" alt="{{$product->title}}">
                             {{ $product->title }}
                         </div>
                     </a>

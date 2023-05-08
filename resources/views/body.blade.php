@@ -17,15 +17,6 @@
         <div class="row">
             
             @foreach($products as $product)
-            <!-- Product -->
-            {{-- @php
-                $image = '';
-                if(count($product->images)>0){
-                   $image = $product->images[0]['img'];
-                } else {
-                   $image = 'no-image.png';
-                }
-            @endphp --}}
             <div class="cardnum col-lg-3 col-sm-6">
                 <div class="product-card">
                     <div class="product-thumb">
