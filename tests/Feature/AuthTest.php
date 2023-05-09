@@ -14,7 +14,7 @@ class AuthTest extends TestCase
 
     public function testLogin()
     {
-        // Создаем массив с данными
+        // Создаем Пользователя
         $user = \App\Models\User::factory()->create([
             'name' => 'testusername',
             'surname' => 'testusersurname',
