@@ -53,22 +53,25 @@ class BasketTest extends TestCase
         Product::create($this->productData);
     }
 
-    public function testAddToCart()
+    public function testBasketAddRemoveConfirm()
     {
+        /**
+         * Basket Add
+         */
+        // Добавляем товар в корзину
         $response = $this->actingAs($this->user)->post('/basket/add/' . $this->productData['id']);
 
+        // Проверяем, что запрос был успешным и произошло перенаправление
         $response->assertStatus(302)->assertRedirect();
 
+         // Проверяем, что товар был добавлен в корзину
         $this->assertDatabaseHas('order_product', [
             'product_id' => $this->productData['id'],
         ]);
-    }
 
-    public function testRemoveFromBasket()
-    {
-        // Добавляем товар в корзину
-        $this->actingAs($this->user)->post('/basket/add/' . $this->productData['id']);
-
+        /**-------------------------------------------------------------
+         * Basket Remove
+         */
         // Отправляем POST-запрос для удаления товара из корзины
         $response = $this->actingAs($this->user)->post('/basket/remove/' . $this->productData['id']);
 
@@ -79,5 +82,36 @@ class BasketTest extends TestCase
         $this->assertDatabaseMissing('order_product', [
             'product_id' => $this->productData['id'],
         ]);
-    }
+
+        /**-------------------------------------------------------------
+         * Basket Confirm
+         */
+        // Отправляем POST-запрос для добавления товара в корзину
+        $response = $this->actingAs($this->user)->post('/basket/add/' . $this->productData['id']);
+        $response->assertStatus(302)->assertRedirect();
+
+        // Подготовка данных для подтверждения заказа
+        $requestData = [
+            'name' => 'John Doe',
+            'phone' => '123456789',
+        ];
+
+        // Отправляем POST-запрос для подтверждения заказа
+        $response = $this->actingAs($this->user)->post('/basket/place', $requestData);
+        $response->assertStatus(302)->assertRedirect();
+
+        // Проверяем, что заказ успешно сохранен
+        $this->assertDatabaseHas('orders', [
+            // Проверяем соответствие данных заказа
+            'name' => $requestData['name'],
+            'phone' => $requestData['phone'],
+            // Проверяем, что заказ связан с пользователем
+            'user_id' => $this->user->id,
+        ]);
+
+        // Проверяем наличие флеш-сообщения об успешном заказе
+        $this->assertTrue(session()->has('success'));
+        // Проверяем отсутствие флеш-сообщения об ошибке
+        $this->assertFalse(session()->has('warning'));
+        }
 }

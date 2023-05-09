@@ -16,7 +16,7 @@ class CategoryAndProductCreationTest extends TestCase
     {
         // Создаем тестовые данные для категории
         $categoryData = [
-            'id' => '1',
+            'id' => '2',
             'title' => 'Новая категория',
             'desc' => 'Описание категории',
             'img' => 'Новая фотография',
@@ -37,13 +37,13 @@ class CategoryAndProductCreationTest extends TestCase
 
         // Создаем тестовые данные для товара
         $productData = [
-            'id' => '1',
+            'id' => '2',
             'title' => 'Новый товар',
             'price' => '200',
             'new_price' => '150',
             'in_stock' => '1',
             'description' => 'Описание товара',
-            'category_id' => '1',
+            'category_id' => '2',
         ];
 
         // Добавляем товар в базу данных
