@@ -20,21 +20,30 @@ Auth::routes([
     'verify' => false,
 ]);
 
+/**
+ * Admin Routes
+ */
 Route::group([
     'middleware' => 'auth',
     // 'namespace' => 'Admin',
     'prefix' =>'admin',
 ], function(){
+    // Admin Order Routes
     Route::group(['middleware' => 'is_admin'], function(){
         Route::get('/orders', [App\Http\Controllers\Admin\OrderController::class, 'index'])->name('home');
     });
-
+    // Admin Category Routes
     Route::resource('categories', '\App\Http\Controllers\Admin\CategoryController');
+    // Admin Product Routes
     Route::resource('products', '\App\Http\Controllers\Admin\ProductController');
 });
-
+/**
+ * Home Route
+ */
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index1'])->name('body');
-
+/**
+ * Basket Routes
+ */
 Route::group(['prefix' => 'basket',],function(){
     Route::post('/add/{id}', [App\Http\Controllers\BasketController::class, 'basketAdd'])->name('basket-add');
 
@@ -47,10 +56,11 @@ Route::group(['prefix' => 'basket',],function(){
         Route::post('/place', [App\Http\Controllers\BasketController::class, 'basketConfirm'])->name('basket-confirm');
     });
 });
-
+/**
+ * Show Category Route
+ */
 Route::get('/{cat}', [App\Http\Controllers\ProductController::class, 'showCategory'])->name('showCategory');
-
+/**
+ * Show Product Route
+ */
 Route::get('/{cat}/{product_id}', [App\Http\Controllers\ProductController::class, 'show'])->name('showProduct');
-
-
-

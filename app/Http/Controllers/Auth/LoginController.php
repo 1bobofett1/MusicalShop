@@ -3,11 +3,50 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+/**
+ * @OA\Tag(
+ *     name="Authentication",
+ *     description="Регистрация и авторизация пользователя"
+ * )
+ */
+
 class LoginController extends Controller
 {
+    /**
+ * @OA\Post(
+ *     path="/login",
+ *     operationId="loginUser",
+ *     tags={"Authentication"},
+ *     summary="Авторизация пользователя",
+ *     @OA\RequestBody(
+ *         description="Данные для авторизации",
+ *         required=true,
+ *         @OA\JsonContent(
+ *             @OA\Property(property="email", type="string", format="email", example="user@example.com"),
+ *             @OA\Property(property="password", type="string", format="password", example="password")
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response="200",
+ *         description="Успешная авторизация",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="email", type="string", format="email", example="user@example.com"),
+ *             @OA\Property(property="password", type="string", format="password", example="password")
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response="401",
+ *         description="Ошибка авторизации",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="error", type="string", example="Неверные учетные данные")
+ *         )
+ *     )
+ * )
+ */
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -39,5 +78,6 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+
     }
 }

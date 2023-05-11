@@ -8,8 +8,27 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Ui\Presets\React;
 
+/**
+ * @OA\Tag(
+ *     name="Basket",
+ *     description="Операции с корзиной покупок"
+ * )
+ */
+
 class BasketController extends Controller
 {
+
+/**
+ * @OA\Get(
+ *     path="/basket",
+ *     operationId="basket",
+ *     tags={"Basket"},
+ *     summary="Получить содержимое корзины",
+ *     @OA\Response(response="200", description="Success", @OA\JsonContent()),
+ *     security={{"bearerAuth": {}}}
+ * )
+ */
+
     public function basket() {
         $orderId = session(key:'orderId');
         // if (!is_null($orderId)) {
@@ -23,6 +42,25 @@ class BasketController extends Controller
         }
         return view('basket', compact('order'));
     }
+
+/**
+ * @OA\Post(
+ *     path="/basket/confirm",
+ *     operationId="basketConfirm",
+ *     tags={"Basket"},
+ *     summary="Подтверждение корзины",
+ *     @OA\RequestBody(
+ *         required=true,
+ *         @OA\JsonContent(
+ *             @OA\Property(property="name", type="string", example="John Doe"),
+ *             @OA\Property(property="phone", type="string", example="123456789")
+ *         )
+ *     ),
+ *     @OA\Response(response="200", description="Success"),
+ *     @OA\Response(response="400", description="Validation Error"),
+ *     security={{"bearerAuth": {}}}
+ * )
+ */
 
     // Сохранение заказа и перенаправление на главную страницу
     public function basketConfirm(Request $request){
@@ -50,6 +88,23 @@ class BasketController extends Controller
         return view('order',compact('order'));
     }
 
+/**
+ * @OA\Post(
+ *     path="/basket/add/{product_id}",
+ *     operationId="basketAdd",
+ *     tags={"Basket"},
+ *     summary="Добавление товара в корзину",
+ *     @OA\Parameter(
+ *         name="product_id",
+ *         in="path",
+ *         description="ID товара",
+ *         required=true,
+ *         @OA\Schema(type="integer", format="int64", example=1)
+ *     ),
+ *     @OA\Response(response="200", description="Success"),
+ *     security={{"bearerAuth": {}}}
+ * )
+ */
 
     //Добавление товара в Корзину
     public function basketAdd($product_id) 
@@ -80,6 +135,24 @@ class BasketController extends Controller
 
         return redirect()->route('basket');
     }
+
+/**
+ * @OA\Delete(
+ *     path="/basket/remove/{product_id}",
+ *     operationId="basketRemove",
+ *     tags={"Basket"},
+ *     summary="Удаление товара из корзины",
+ *     @OA\Parameter(
+ *         name="product_id",
+ *         in="path",
+ *         description="ID товара",
+ *         required=true,
+ *         @OA\Schema(type="integer", format="int64", example=1)
+ *     ),
+ *     @OA\Response(response="200", description="Success"),
+ *     security={{"bearerAuth": {}}}
+ * )
+ */
 
     //Удаление товара из корзины
     public function basketRemove($product_id)

@@ -9,6 +9,37 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * @OA\Tag(
+ *     name="Authentication",
+ *     description="Регистрация и авторизация пользователя"
+ * )
+ */
+
+/**
+ * @OA\Post(
+ *     path="/register",
+ *     operationId="registerUser",
+ *     tags={"Authentication"},
+ *     summary="Регистрация нового пользователя",
+ *     @OA\RequestBody(
+ *         description="Данные для регистрации",
+ *         required=true,
+ *         @OA\JsonContent(
+ *             @OA\Property(property="name", type="string", example="Ruslan"),
+ *             @OA\Property(property="surname", type="string", example="Farvaev"),
+ *             @OA\Property(property="patronymic", type="string", example="Rinatovich"),
+ *             @OA\Property(property="phone", type="string", example="+79990011222"),
+ *             @OA\Property(property="email", type="string", format="email", example="Ruslan@example.com"),
+ *             @OA\Property(property="password", type="string", format="password", example="password"),
+ *             @OA\Property(property="Confirm password", type="string", format="password", example="password")
+ *         )
+ *     ),
+ *     @OA\Response(response="200", description="Успешная регистрация"),
+ *     @OA\Response(response="400", description="Ошибка валидации")
+ * )
+ */
+
 class RegisterController extends Controller
 {
     /*
@@ -70,10 +101,6 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
 
-            //добавил отдельно
-            // $table->string('surname');
-            // $table->string('patronymic');
-            // $table->string('phone');
             'surname' => $data['surname'],
             'patronymic' => $data['patronymic'],
             'phone' => $data['phone'],

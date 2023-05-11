@@ -8,6 +8,96 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
 
+
+/**
+ * @OA\Get(
+ *     path="/admin/products",
+ *     operationId="getAdminProducts",
+ *     tags={"Admin"},
+ *     summary="Отображение существующих товаров",
+ *     description="Get all products",
+ *     @OA\Response(
+ *         response="200",
+ *         description="Successful operation",
+ *         @OA\JsonContent(
+ *             type="array",
+ *             @OA\Items(ref="#/components/schemas/Product")
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response="401",
+ *         description="Unauthorized",
+ *     ),
+ *     security={{"bearerAuth": {}}}
+ * )
+ *
+ * @OA\Post(
+ *     path="/admin/products",
+ *     operationId="createAdminProduct",
+ *     tags={"Admin"},
+ *     summary="Создание нового товара",
+ *     description="Creates a new product",
+ *     @OA\RequestBody(
+ *         required=true,
+ *         @OA\JsonContent(
+ *             type="object",
+ *             required={"title", "price", "in_stock", "category_id", "description", "new_price", "img"},
+ *             @OA\Property(
+ *                 property="title",
+ *                 description="Название продукта",
+ *                 type="string",
+ *                 example="Guitar"
+ *             ),
+ *             @OA\Property(
+ *                 property="price",
+ *                 description="Цена товара",
+ *                 type="number",
+ *                 example="500"
+ *             ),
+ *             @OA\Property(
+ *                 property="in_stock",
+ *                 description="Наличие товара",
+ *                 type="boolean",
+ *                 example=true
+ *             ),
+ *             @OA\Property(
+ *                 property="category_id",
+ *                 description="ID Принадлежащей категории",
+ *                 type="integer",
+ *                 example=1
+ *             ),
+ *             @OA\Property(
+ *                 property="description",
+ *                 description="Описание товара",
+ *                 type="string",
+ *                 example="Exammple desc"
+ *             ),
+ *             @OA\Property(
+ *                 property="new_price",
+ *                 description="Новая цена товара",
+ *                 type="number",
+ *                 example="200"
+ *             ),
+ *             @OA\Property(
+ *                 property="img",
+ *                 description="Фото товара",
+ *                 type="file"
+ *             )
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response="200",
+ *         description="Product created successfully",
+ *         @OA\JsonContent(ref="#/components/schemas/Product")
+ *     ),
+ *     @OA\Response(
+ *         response="401",
+ *         description="Unauthorized",
+ *     ),
+ *     security={{"bearerAuth": {}}}
+ * )
+ */
+
 class ProductController extends Controller
 {
     /**

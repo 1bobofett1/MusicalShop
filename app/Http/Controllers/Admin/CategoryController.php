@@ -7,6 +7,68 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * @OA\Get(
+ *     path="/admin/categories",
+ *     operationId="getAdminCategories",
+ *     tags={"Admin"},
+ *     summary="Отображение существующих категорий",
+ *     description="Get all Categories",
+ *     @OA\Response(
+ *         response="200",
+ *         description="Successful operation",
+ *         @OA\JsonContent(
+ *             type="array",
+ *             @OA\Items(ref="#/components/schemas/Category")
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response="401",
+ *         description="Unauthorized",
+ *     ),
+ *     security={{"bearerAuth": {}}}
+ * )
+ *
+ * @OA\Post(
+ *     path="/admin/categories",
+ *     operationId="createAdminCategory",
+ *     tags={"Admin"},
+ *     summary="Создание новой категории",
+ *     description="Create a new category",
+ *     @OA\RequestBody(
+ *         required=true,
+ *         @OA\MediaType(
+ *             mediaType="multipart/form-data",
+ *             @OA\Schema(
+ *                 type="object",
+ *                 required={"title", "img"},
+ *                 @OA\Property(
+ *                     property="title",
+ *                     description="Category title",
+ *                     type="string",
+ *                     example="Electronics"
+ *                 ),
+ *                 @OA\Property(
+ *                     property="img",
+ *                     description="Category image",
+ *                     type="file"
+ *                 )
+ *             )
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response="200",
+ *         description="Category created successfully",
+ *         @OA\JsonContent(ref="#/components/schemas/Category")
+ *     ),
+ *     @OA\Response(
+ *         response="401",
+ *         description="Unauthorized",
+ *     ),
+ *     security={{"bearerAuth": {}}}
+ * )
+ */
+
 class CategoryController extends Controller
 {
     /**

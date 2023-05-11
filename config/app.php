@@ -181,7 +181,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        
+        //Добавление документации в проект
+        L5Swagger\L5SwaggerServiceProvider::class,
         /*
          * Package Service Providers...
          */
