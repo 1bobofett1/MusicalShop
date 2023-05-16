@@ -82,9 +82,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+
+        //Добавил отдельно
         'surname',
         'patronymic',
         'phone',
+
         'email',
         'password',
     ];

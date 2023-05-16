@@ -1,6 +1,6 @@
 <p align="center"><a href="" target="_blank"><img src="./public/img/logo1.png" width="400" alt="SoundSpace Logo"></a></p>
 
-<p align="center">Интернет-магазин музыкального оборудования</p> 
+<h3 align="center">Интернет-магазин музыкального оборудования</h3>
 
 ## Установка
 

@@ -31,14 +31,4 @@ class HomeController extends Controller
             'products' => $products
         ]);
     }
-
-    public function contacts()
-    {
-        return view('contacts');
-    }
-
-    public function aboutus()
-    {
-        return view('aboutus');
-    }
 }

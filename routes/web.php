@@ -38,11 +38,9 @@ Route::group([
     Route::resource('products', '\App\Http\Controllers\Admin\ProductController');
 });
 /**
- * Routes
+ * Home Route
  */
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index1'])->name('body');
-Route::get('/contacts', [App\Http\Controllers\HomeController::class, 'contacts'])->name('contacts');
-Route::get('/aboutus', [App\Http\Controllers\HomeController::class, 'aboutus'])->name('aboutus');
 /**
  * Basket Routes
  */

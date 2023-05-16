@@ -28,7 +28,7 @@ class BasketController extends Controller
  *     security={{"bearerAuth": {}}}
  * )
  */
-    //Содержимое корзины
+
     public function basket() {
         $orderId = session(key:'orderId');
         // if (!is_null($orderId)) {
