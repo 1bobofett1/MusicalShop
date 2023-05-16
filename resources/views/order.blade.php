@@ -4,6 +4,7 @@
 
 @section('custom_css')
     <link rel="stylesheet" type="text/css" href="/css/starter-template.css">
+    <link rel="stylesheet" type="text/css" href="/css/basket.css">
 @endsection
 
 @section('content')

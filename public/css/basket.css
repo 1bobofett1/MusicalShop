@@ -100,3 +100,9 @@ div.thumbnail img {
     justify-content: center;
     text-align: center;
 }
+
+.show {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
