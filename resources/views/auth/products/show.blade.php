@@ -2,8 +2,12 @@
 
 @section('title', 'Продукт ' . $product->name)
 
+@section('custom_css')
+    <link rel="stylesheet" type="text/css" href="/css/basket.css">
+@endsection
+
 @section('content')
-    <div class="col-md-12">
+    <div class="col-md-12 show">
         <h1>{{ $product->name }}</h1>
         <table class="table">
             <tbody>

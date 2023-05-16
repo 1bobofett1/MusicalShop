@@ -53,7 +53,7 @@
                         </div>
                     </div> 
                     
-                    <li class="header__bottom-item"><a class="header__bottom-link" href="/aboutus">О нас</a>
+                    <li class="header__bottom-item"><a class="header__bottom-link" href="{{Route('aboutus')}}">О нас</a>
                     </li>
                     <li class="header__bottom-item"><a class="header__bottom-link"href="/paydeliver">Оплата и доставка</a>
                     </li>
