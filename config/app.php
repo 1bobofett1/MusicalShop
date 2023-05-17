@@ -184,6 +184,7 @@ return [
         
         //Добавление документации в проект
         L5Swagger\L5SwaggerServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         /*
          * Package Service Providers...
          */

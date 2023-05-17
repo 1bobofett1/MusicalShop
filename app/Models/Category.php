@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @OA\Schema(
+ * App\Models\Category
+ *
+ * @OA\Schema (
  *     title="Category",
  *     description="Модель категории",
  *     @OA\Property(
@@ -56,6 +58,35 @@ use Illuminate\Database\Eloquent\Model;
  * )
  */
 
+ /**
+ * Class Category
+ *
+ * Модель категории.
+ *
+ * @package App\Models
+ * 
+ * @property int $id
+ * @property string $title
+ * @property string $desc
+ * @property string $img
+ * @property string $alias
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Product> $products
+ * @property-read int|null $products_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Category newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereAlias($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereDesc($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereImg($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
+
 class Category extends Model
 {
     /**
@@ -68,9 +99,24 @@ class Category extends Model
      *    )
      * )
      */
+
+    /**
+     * @brief Массовое заполнение атрибутов.
+     * 
+     * @var array<int, string>
+     */
     protected $fillable = ['title','desc','alias','img'];
 
     use HasFactory;
+
+    /**
+     * @brief Получить все товары, принадлежащие категории.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany Отношение один ко многим
+     * 
+     * @see Product
+     */
+
     public function products(){
         return $this->hasMany('App\Models\Product');
     }

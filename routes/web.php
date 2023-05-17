@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+use Dompdf\Dompdf;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +40,7 @@ Route::group([
     // Admin Product Routes
     Route::resource('products', '\App\Http\Controllers\Admin\ProductController');
 });
+
 /**
  * Home Route
  */
@@ -64,3 +68,19 @@ Route::get('/{cat}', [App\Http\Controllers\ProductController::class, 'showCatego
  * Show Product Route
  */
 Route::get('/{cat}/{product_id}', [App\Http\Controllers\ProductController::class, 'show'])->name('showProduct');
+
+// Documentation
+// Route::get('/generate-pdf', function () {
+//     $pathToHtmlFile = '_ide_helper.php';
+//     $html = Storage::get($pathToHtmlFile); // Используйте Storage::get() вместо File::get()
+
+//     $dompdf = new Dompdf();
+//     $dompdf->loadHtml($html);
+//     $dompdf->setPaper('A4', 'portrait');
+//     $dompdf->render();
+
+//     return response($dompdf->output(), 200, [
+//         'Content-Type' => 'application/pdf',
+//         'Content-Disposition' => 'inline; filename="documentation.pdf"'
+//     ]);
+// });

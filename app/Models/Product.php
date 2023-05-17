@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @OA\Schema(
+ * App\Models\Product
+ *
+ * @OA\Schema (
  *     title="Product",
  *     description="Модель товара",
  *     @OA\Property(
@@ -76,13 +78,62 @@ use Illuminate\Database\Eloquent\Model;
  *     )
  * )
  */
+ 
+ /**
+ * Class Product
+ *
+ * Модель товара.
+ *
+ * @details Модель товара содержит информацию о названии товара, его цене, наличии на складе, категории, описании и изображении.
+ * 
+ * @package App\Models
+ *
+ * @property int $id
+ * @property string $title
+ * @property int $price
+ * @property int $in_stock
+ * @property string $description
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int|null $new_price
+ * @property int $category_id
+ * @property string $img
+ * @property-read \App\Models\Category $category
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ProductImage> $images
+ * @property-read int|null $images_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Product newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Product newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Product query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereCategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereImg($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereInStock($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereNewPrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 
 class Product extends Model
 {
-    
+    /**
+     * @brief Массовое заполнение атрибутов.
+     * 
+     * @var array<int, string>
+     */
     protected $fillable = ['title', 'price', 'in_stock', 'category_id', 'description', 'new_price','img'];
 
     use HasFactory;
+    /**
+     * @brief Получить все изображения товара.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany Отношение один ко многим
+     * 
+     * @see ProductImage
+     */
     public function images(){
         return $this->hasMany('App\Models\ProductImage');
     }
@@ -95,12 +146,26 @@ class Product extends Model
      * )
      */
 
+     /**
+     * @brief Получить категорию, к которой принадлежит товар.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo Отношение один к одному
+     * 
+     * @see Category
+     * 
+     * @note Поле foreign key по умолчанию считается category_id
+     */
     public function category(){
         return $this->belongsTo('App\Models\Category');
     }
 
-
-    //Определение общей цены товаров
+    /**
+     * @brief Получить общую цену товаров.
+     * 
+     * @details Метод получает общую цену товаров, учитывая их количество.
+     * 
+     * @return float Цена
+     */
     public function getPriceForCount() {
         if(!is_null($this->pivot)) {
             return $this->pivot->count * $this->new_price;
