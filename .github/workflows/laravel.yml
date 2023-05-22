@@ -40,3 +40,7 @@ jobs:
         DB_PORT: 3306
         DB_USERNAME: admin
         DB_PASSWORD: admin
+        QUEUE_CONNECTION: redis
+        REDIS_HOST: 127.0.0.1
+        REDIS_PASSWORD:
+        REDIS_PORT: 6379
