@@ -27,6 +27,14 @@ jobs:
       env:
         DB_CONNECTION: mysql
         DB_DATABASE: database/database.mysql
+    - name: Обновление параметров подключения к базе данных
+      run: |
+        echo "DB_HOST=localhost" >> .env
+        echo "DB_PORT=3306" >> .env
+        echo "DB_DATABASE=db_test" >> .env
+        echo "DB_USERNAME=admin" >> .env
+        echo "DB_PASSWORD=admin" >> .env
+    - name: Выполнение миграций базы данных Laravel    
       run: php artisan migrate --force
     - name: Установка зависимостей NPM
       run: npm install
