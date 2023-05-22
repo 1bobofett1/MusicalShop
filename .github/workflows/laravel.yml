@@ -24,12 +24,9 @@ jobs:
       run: php artisan key:generate
     - name: Настройка разрешений для директорий
       run: chmod -R 777 storage bootstrap/cache
-    - name: Создание базы данных
-      run: |
-        mkdir -p database
-        touch database/database.sqlite
-    - name: Запуск тестов (Unit и Feature тесты) с помощью PHPUnit
-      env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
+    - name: Install NPM dependencies
+      run: npm install
+    - name: Compile assets
+      run: npm run production
+    - name: Запуск тестов (Unit и Feature тесты) с помощью PHPUnit  
       run: vendor/bin/phpunit
