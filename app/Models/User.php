@@ -120,36 +120,36 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
-     * Атрибуты пользователя.
+     * Аттрибуты пользователя.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'name', // Имя пользователя
-        'surname', // Фамилия пользователя
-        'patronymic', // Отчество пользователя
-        'phone', // Номер телефона пользователя
-        'email', // Адрес электронной почты пользователя
-        'password', // Пароль пользователя
+        'name',
+        'surname',
+        'patronymic',
+        'phone',
+        'email',
+        'password',
     ];
 
     /**
-     * Скрытые атрибуты.
+     * Скрытые аттрибуты.
      *
      * @var array<int, string>
      */
     protected $hidden = [
-        'password', // Скрытый пароль пользователя
-        'remember_token', // Токен для запоминания пользователя
+        'password',
+        'remember_token',
     ];
 
     /**
-     * Атрибуты, которые должны быть приведены к определенному типу.
+     * The attributes that should be cast.
      *
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime', // Дата и время подтверждения адреса электронной почты
+        'email_verified_at' => 'datetime',
     ];
 
     /**
@@ -159,6 +159,6 @@ class User extends Authenticatable
      */
     public function isAdmin()
     {
-        return $this->is_admin === 1; // Возвращает true, если пользователь является администратором
+      return $this->is_admin === 1;  
     }
 }
