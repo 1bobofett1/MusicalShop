@@ -11,28 +11,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Copy .env.example to .env
-      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-    - name: Install composer dependencies
+    - name: Копирование .env.testing в .env
+      run: cp .env.testing .env
+    - name: Установка зависимостей Composer
       run: composer install
-    - name: Set required directory permissions
+    - name: Установка необходимых прав для директорий
       run: chmod -R 777 storage bootstrap/cache
-    - name: Generate encryption key
+    - name: Генерация ключа шифрования
       run: php artisan key:generate
-    - name: Create temporary sqlite database
+    - name: Создание временной MySQL базы данных
       run: |
         mkdir -p database
         touch database/database.mysql
-    - name: Run laravel database migrations
+    - name: Выполнение миграций базы данных Laravel
       env:
         DB_CONNECTION: mysql
         DB_DATABASE: database/database.mysql
       run: php artisan migrate --force
-    - name: Install NPM dependencies
+    - name: Установка зависимостей NPM
       run: npm install
-    - name: Minify CSS and JS files
+    - name: Минификация файлов CSS и JS
       run: npm run prod
-    - name: Run unit tests via PHPUnit
+    - name: Запуск модульных тестов с помощью PHPUnit
       env:
         DB_CONNECTION: mysql
         DB_DATABASE: database/database.mysql
