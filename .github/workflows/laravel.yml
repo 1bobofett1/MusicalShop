@@ -28,7 +28,7 @@ jobs:
       run: npm ci && npm run build
     - name: Create databases
       run: |
-        touch testbench.sqlite
+        touch -p testbench.sqlite
         mysql -e 'CREATE DATABASE testbench' -h127.0.0.1 -uroot -ppassword -P ${{ job.services.mysql.ports[3306] }}  
     - name: Запуск тестов (Unit и Feature тесты) с помощью PHPUnit
       run: vendor/bin/phpunit --testdox --testsuite feature
