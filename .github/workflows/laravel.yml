@@ -19,5 +19,9 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Генерация ключа шифрования
       run: php artisan key:generate
+    - name: Установка зависимостей NPM
+      run: npm install
+    - name: Минификация файлов CSS и JS
+      run: npm run prod  
     - name: Запуск тестов
       run: ./vendor/bin/phpunit
