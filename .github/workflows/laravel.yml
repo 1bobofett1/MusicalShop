@@ -27,6 +27,6 @@ jobs:
     - name: Install NPM dependencies
       run: npm install
     - name: Compile assets
-      run: npm run dev
+      run: npm run build
     - name: Запуск тестов (Unit и Feature тесты) с помощью PHPUnit  
       run: vendor/bin/phpunit
