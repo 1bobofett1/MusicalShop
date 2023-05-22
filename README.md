@@ -11,7 +11,7 @@
 - Клонируйте репозиторий SoundSpace на свой локальный компьютер или сервер: 
   **git clone https://github.com/1bobofett1/MusicalShop.git**
 
-- Перейдите в папу проекта: **cd C:\OSPanel\domains\MusicalShop**
+- Перейдите в папку проекта: **cd C:\OSPanel\domains\MusicalShop**
 
 - Установите зависимости, выполнив команду: **composer install**
 
