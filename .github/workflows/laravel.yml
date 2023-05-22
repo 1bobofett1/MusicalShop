@@ -1,0 +1,35 @@
+name: Laravel CI
+on:
+  pull_request:
+    branches: [ master ]
+jobs:
+  laravel-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Копирование .env.example в .env
+      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+    - name: Установка зависимостей Composer
+      run: composer install
+    - name: Установка необходимых прав для директорий
+      run: chmod -R 777 storage bootstrap/cache
+    - name: Генерация ключа шифрования
+      run: php artisan key:generate
+    - name: Создание временной SQLite базы данных
+      run: |
+        mkdir -p database
+        touch database/database.mysql
+    - name: Выполнение миграций базы данных Laravel
+      env:
+        DB_CONNECTION: mysql
+        DB_DATABASE: database/database.mysql
+      run: php artisan migrate --force
+    - name: Установка зависимостей NPM
+      run: npm install
+    - name: Минификация файлов CSS и JS
+      run: npm run prod
+    - name: Запуск модульных тестов с помощью PHPUnit
+      env:
+        DB_CONNECTION: mysql
+        DB_DATABASE: database/database.mysql
+      run: ./vendor/bin/phpunit
