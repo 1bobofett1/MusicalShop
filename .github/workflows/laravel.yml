@@ -40,3 +40,19 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: php artisan test
+      
+    - name: Run tests
+      run: vendor/bin/phpunit
+      
+    - name: Create build archive
+      run: zip -r build.zip .
+      working-directory: .
+
+    - name: Move build archive to repository directory
+      run: mv build.zip $GITHUB_WORKSPACE/build.zip
+
+    - name: Save build archive as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-artifact
+        path: build.zip  
