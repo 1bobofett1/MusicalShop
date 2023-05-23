@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <div class="col-md-12">
+    <div class="col-md-12" style="padding: 20px 0px 50px 0px;">
         <h1 style="">Заказы</h1>
         <table class="table">
             <tbody>

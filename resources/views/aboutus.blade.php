@@ -1,93 +1,60 @@
 @extends('layouts.app')
 
-@section('title-block')SoundSpace - О@endsection
+@section('title')SoundSpace - О нас@endsection
 
 @section('content')
-    <div class="container-xl">
-        <nav class="basket__breadcrumb breadcrumb">
-            <ul class="breadcrumb__list">
-                <li class="breadcrumb__item">
-                    <a href="./index.html" class="breadcrumb__link">Главная</a>
-                </li>
-                <li class="breadcrumb__item">
-                    <a href="#!" class="breadcrumb__link">Каталог</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
     <div class="aboutUs">
         <section>
             <div class="container-xl">
-                <div class="aboutUs__title title">О нас</div>
-                <div class="row aboutUs__row1">
-                    <div class="col-md-6">
-                        <div class="aboutUs__row1-text">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet ipsum consectetur quisque
-                                ultrices sed elementum. At ut amet venenatis enim erat. Nec vitae ultrices magna id
-                                felis
-                                laoreet pellentesque nunc. Vivamus mattis ullamcorper quis consectetur. Maecenas massa
-                                erat
-                                consequat odio purus massa. Tincidunt semper adipiscing lectus dui et odio faucibus
-                                lectus.
-                                <br>
-                                Aenean fringilla ut pellentesque ultricies dictum. Maecenas ullamcorper ipsum eget morbi
-                                leo
-                                leo lectus. Egestas lacus et aliquam ullamcorper id vulputate mauris tortor nullam. Mi
-                                nec
-                                libero orci, quisque at. Orci eleifend netus urna fusce a amet neque. Fermentum lacinia
-                                dictum.
-                            </p>
-                        </div>
+                <div class="aboutUs__title title">SoundSpace</div>
+                
+                    <div class="aboutUs__row1-text">
+                        <p>
+                            Интернет-магазин музыкальных инструментов и оборудования.
+                            <br>
+                            Мы стремимся предоставить нашим клиентам лучший выбор музыкальных инструментов и аксессуаров, а также качественное обслуживание.
+                        </p>
                     </div>
-                    <div class="col-md-6">
-                        <div class="aboutUs__row1-img">
-                            <img src="./img/product1.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
+                
         </section>
         
         <section class="aboutUs__row3-wrapper">
             <div class="container-xl">
                 <div class="aboutUs__row3 row">
-                    <div class="col-md-6">
-                        <div class="aboutUs__row3-img">
-                            <img src="./img/product1.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="aboutUs__row3-info">
+                    <div class="aboutUs__row3-info">
                             <h6>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pharetra, viverra nisi
-                                scelerisque vestibulum mattis. Lacus scelerisque magna.
+                                В нашем магазине вы найдете широкий ассортимент музыкальных инструментов, включая гитары, барабаны, клавишные инструменты, духовые инструменты и многое другое. Мы также предлагаем аксессуары, звуковое и световое оборудование для музыкантов и аудиолюбителей.
                             </h6>
-                            <p>
-                                <svg width="34" height="34" fill="#FFD600">
-                                    <use xlink:href='#checked'></use>
-                                </svg>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing.
-                            </p>
-                            <p>
-                                <svg width="34" height="34" fill="#FFD600">
-                                    <use xlink:href='#checked'></use>
-                                </svg>
-                                Lorem ipsum dolor sit, amet consectetur.
-                            </p>
-                            <p>
-                                <svg width="34" height="34" fill="#FFD600">
-                                    <use xlink:href='#checked'></use>
-                                </svg>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing adipisicing.
-                            </p>
-                            <p>
-                                <svg width="34" height="34" fill="#FFD600">
-                                    <use xlink:href='#checked'></use>
-                                </svg>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing.
-                            </p>
-                        </div>
+                        <div class="row">  
+                            <div class="col-md-6">
+                                <div class="contacts">
+                                    <h5>Контакты</h5>
+                                <p>
+                                    <svg width="34" height="34" fill="#FFD600">
+                                        <use xlink:href='#checked'></use>
+                                    </svg>
+                                    Телефон: +8 900 000 00 00
+                                </p>
+                                <p>
+                                    <svg width="34" height="34" fill="#FFD600">
+                                        <use xlink:href='#checked'></use>
+                                    </svg>
+                                    Электронная почта: info@soundspace.com
+                                </p>
+                                <p>
+                                    <svg width="34" height="34" fill="#FFD600">
+                                        <use xlink:href='#checked'></use>
+                                    </svg>
+                                    Адрес: ул. Попова, 16, Пермь
+                                </p>
+                                </div>
+                            </div> 
+                            <div class="col-md-6">   
+                                <p class="map">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1494.6833589312128!2d56.22896098636605!3d58.00812964370769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1684834424894!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </p>
+                            </div> 
+                        </div>     
                     </div>
                 </div>
             </div>

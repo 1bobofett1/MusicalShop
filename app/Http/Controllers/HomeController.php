@@ -31,4 +31,22 @@ class HomeController extends Controller
             'products' => $products
         ]);
     }
+
+    public function search(Request $request)
+    {
+        // $s = $request->s;
+        // $products = Product::where('title', 'LIKE', "%{$s}%")->orWhere('category_id', 'LIKE', "%{$s}%")->get();
+        $s = $request->s;
+        $products = Product::where(function ($query) use ($s) {
+        $query->where('title', 'LIKE', "%{$s}%")
+            ->orWhereHas('category', function ($query) use ($s) {
+                $query->where('title', 'LIKE', "%{$s}%");
+            });
+        })->get();
+
+
+        return view('body', [
+            'products' => $products
+        ]);
+    }
 }

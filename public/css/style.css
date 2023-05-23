@@ -429,12 +429,16 @@ body {
 
 .aboutUs__title {
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .aboutUs__row1-text, .aboutUs__row4-text {
-    font-size: 18px;
+    display: flex;
+    text-align: center;
+    font-size: 22px;
     line-height: 150%;
     color: #000000;
+    margin-bottom: 20px;
 }
 
 .aboutUs__row1-img {
@@ -457,7 +461,7 @@ body {
 }
 
 .aboutUs__row3-wrapper {
-    background: #F5F7FA;
+    background: #f7f7f7;
     padding: 55px 0;
 }
 
@@ -479,6 +483,16 @@ body {
     letter-spacing: 0.03em;
     color: #232323;
     margin-bottom: 42px;
+    text-align: center;
+}
+
+.aboutUs__row3-info>h5 {
+    font-family: "Proxima Nova Bold", sans-serif;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 0.03em;
+    color: #232323;
+    margin-bottom: 42px;
 }
 
 .aboutUs__row3-info>p {
@@ -492,6 +506,34 @@ body {
 
 .aboutUs__row3-info>p>svg {
     margin-right: 17px;
+}
+
+.contacts{
+    margin-top: 90px;
+}
+
+.contacts h5{
+    font-family: "Proxima Nova Bold", sans-serif;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 0.03em;
+    color: #232323;
+    text-align: center;
+}
+
+.contacts p{
+    font-family: "Proxima Nova Bold", sans-serif;
+    font-size: 20px;
+    line-height: 29px;
+    letter-spacing: 0.03em;
+    color: #232323;
+    margin-left: 70px;
+    margin-top: 25px;
+}
+
+.map{
+    display: flex;
+    justify-content: center;
 }
 
 .aboutUs__row4-wrapper {
@@ -1065,7 +1107,7 @@ body {
 
 .product-details p {
     font-size: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: #999;
     height: 44px;
     overflow: hidden;

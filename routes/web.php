@@ -42,6 +42,12 @@ Route::group([
 });
 
 /**
+ * Search
+ */
+Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
+
+Route::get('/aboutus', function() {return view('aboutus');});
+/**
  * Home Route
  */
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index1'])->name('body');
@@ -69,18 +75,3 @@ Route::get('/{cat}', [App\Http\Controllers\ProductController::class, 'showCatego
  */
 Route::get('/{cat}/{product_id}', [App\Http\Controllers\ProductController::class, 'show'])->name('showProduct');
 
-// Documentation
-// Route::get('/generate-pdf', function () {
-//     $pathToHtmlFile = '_ide_helper.php';
-//     $html = Storage::get($pathToHtmlFile); // Используйте Storage::get() вместо File::get()
-
-//     $dompdf = new Dompdf();
-//     $dompdf->loadHtml($html);
-//     $dompdf->setPaper('A4', 'portrait');
-//     $dompdf->render();
-
-//     return response($dompdf->output(), 200, [
-//         'Content-Type' => 'application/pdf',
-//         'Content-Disposition' => 'inline; filename="documentation.pdf"'
-//     ]);
-// });

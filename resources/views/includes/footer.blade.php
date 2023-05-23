@@ -1,5 +1,5 @@
 
-<footer class="footer" style="margin: 100px 0px 0px 0px;">
+<footer class="footer" style="margin: 0px 0px 0px 0px;">
 <div class="container-xl">
     <div class="footer__inner">
         <div class="row">

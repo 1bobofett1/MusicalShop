@@ -38,8 +38,7 @@
                     <ul class="navbar-nav me-auto">
                         <div class="header___top-nav">
                             <a class="header__top-link" href="/">Главная</a>
-                            <a class="header__top-link" href="/contacts">Контакты</a>
-                            <a class="header__top-link" href="/paydeliver">Услуги и сервис</a>
+                            <a class="header__top-link" href="/aboutus">Контакты</a>
                         </div>
                     </ul>
 

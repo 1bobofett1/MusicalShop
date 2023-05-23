@@ -7,13 +7,16 @@
                 </a>
             </div>
 
+            <form method="get" action="{{route('search')}}">
             <div class="header__content-inputWrapper">
-                <input class="header__content-input" type="text" placeholder="Поиск по товарам...">
+                <input class="header__content-input" type="text" id="s" name="s" placeholder="Поиск по товарам...">
                 <span>
-                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </span>
                 <div></div>
             </div>
+            </form>
+
             <a class="header__content-phone" href="tel:+8 900 000 00 00">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <div>
@@ -54,8 +57,6 @@
                     </div> 
                     
                     <li class="header__bottom-item"><a class="header__bottom-link" href="/aboutus">О нас</a>
-                    </li>
-                    <li class="header__bottom-item"><a class="header__bottom-link"href="/paydeliver">Оплата и доставка</a>
                     </li>
                 </ul>
             </div>
