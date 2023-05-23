@@ -14,23 +14,28 @@ jobs:
     steps:
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
-        php-version: '8.0'
+        php-version: '8.1'
     - uses: actions/checkout@v3
-    - name: Копирование .env
+    - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.testing', '.env');"
-    - name: Установка зависимостей
+    - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-    - name: Генерация ключа
+    - name: Generate key
       run: php artisan key:generate
-    - name: Настройка разрешений для директорий
+    - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
     - name: Build assets
-      run: npm ci && npm run build
-    - name: Создание базы данных
+      run: |
+        npm ci && npm run build
+    - name: Create Database
       run: |
         mkdir -p database
         touch database/database.sqlite
-    - name: Запуск тестов (Unit и Feature тесты) с помощью PHPUnit
+        php artisan cache:clear
+        php artisan route:clear
+        php artisan config:clear
+        php artisan view:clear     
+    - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
