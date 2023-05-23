@@ -16,7 +16,7 @@ class CategoryAndProductCreationTest extends TestCase
     {
         // Создаем тестовые данные для категории
         $categoryData = [
-            'id' => '2',
+            'id' => '1',
             'title' => 'Новая категория',
             'desc' => 'Описание категории',
             'img' => 'Новая фотография',
