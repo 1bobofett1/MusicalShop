@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title-block')SoundSpace - Корзина@endsection
+@section('title')SoundSpace - Корзина@endsection
 
 @section('custom_css')
     <link rel="stylesheet" type="text/css" href="/css/basket.css">
@@ -47,12 +47,12 @@
                 <td>
                     <div class="quantity">
                         <form action="{{ route('basket-add', $product) }}" method="POST">
-                            <button type="submit" class="btn" href="">+</button>
+                            <button type="submit" class="btnplus" href="">+</button>
                             @csrf
                         </form>
                         <span class="">{{$product->pivot->count}}</span>
                         <form action="{{ route('basket-remove', $product) }}" method="POST">
-                            <button type="submit" class="btn" href="">-</button>
+                            <button type="submit" class="btnplus" href="">-</button>
                             @csrf
                         </form>
                     </div>
@@ -62,7 +62,7 @@
             </tr>
             @endforeach
             <tr>
-                <td colspan="3">Общая стоимость:</td>
+                <td colspan="3">{{-- Общая стоимость: --}}</td> 
                 <td>${{$order->getFullPrice()}}</td>
             </tr>
         </tbody>

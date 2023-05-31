@@ -4,6 +4,7 @@
 
 @section('custom_css')
     <link rel="stylesheet" type="text/css" href="/css/starter-template.css">
+    <link rel="stylesheet" type="text/css" href="/css/basket.css">
 @endsection
 
 @section('content')
@@ -34,7 +35,7 @@
                     </div>
                     <br>
                     @csrf
-                    <input type="submit" class="btn btn-success" value="Подтвердите заказ">    
+                    <input type="submit" class="btn btn-success" style="width: 175px" value="Подтвердите заказ">    
                 </div>
             </form>
         </div>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title-block')SoundSpace - Интернет магазин музыкальных инструментов@endsection
+@section('title')SoundSpace - Интернет магазин музыкальных инструментов@endsection
 
 @section('content')
 

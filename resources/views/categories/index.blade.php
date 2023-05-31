@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $cat->title)
+@section('title')SoundSpace - {{$cat->title}}@endsection
 
 @section('custom_css')
     <link rel="stylesheet" type="text/css" href="/css/style.css">
@@ -34,20 +34,12 @@
 
                     <!-- Product Sorting -->
                     <div class="sorting_bar d-flex flex-md-row flex-column align-items-md-center justify-content-md-start">
-                        <div class="results">Showing <span>{{$cat->products->count()}}</span> results</div>
+                        <div class="results">Найдено <span>{{$cat->products->count()}}</span> результата</div>
                         <div class="sorting_container ml-md-auto">
                             <div class="sorting">
                                 <ul class="item_sorting">
                                     <li>
-                                        <span class="sorting_text">Sort by</span>
-                                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                        <ul>
-                                            <li class="product_sorting_btn" data-order="default"><span>Default</span></li>
-                                            <li class="product_sorting_btn" data-order="price-low-high"><span>Price: Low-High</span></li>
-                                            <li class="product_sorting_btn" data-order="price-high-low"><span>Price: High-Low</span></li>
-                                            <li class="product_sorting_btn" data-order="name-a-z"><span>Name: A-Z</span></li>
-                                            <li class="product_sorting_btn" data-order="name-z-a"><span>Name: Z-A</span></li>
-                                        </ul>
+
                                     </li>
                                 </ul>
                             </div>
@@ -63,14 +55,6 @@
             <div class="row">
                 @foreach($cat->products as $product)
                     <!-- Product -->
-                    {{-- @php
-                        $image = '';
-                        if(count($product->images)>0){
-                            $image = $product->images[0]['img'];
-                        } else {
-                            $image = 'no-image.png';
-                        }
-                    @endphp --}}
                     <div class="cardnum col-lg-3 col-sm-6">
                         <div class="product-card">
                             <div class="product-thumb">
@@ -78,7 +62,8 @@
                             </div>
                             <div class="product-details">
                                 <h4><a href="#">{{$product->title}}</a></h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus facilis eaque possimus itaque, deleniti quasi!</p>
+                                <p>{{$product->description}}</p>
+                                <p>Категория - {{$product->category->title}}</p>
                                 <div class="product-bottom-details d-flex justify-content-between">
                                     @if($product->new_price != null)
                                         <div class="product-price">

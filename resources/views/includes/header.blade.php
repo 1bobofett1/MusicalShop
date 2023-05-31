@@ -11,7 +11,7 @@
             <div class="header__content-inputWrapper">
                 <input class="header__content-input" type="text" id="s" name="s" placeholder="Поиск по товарам...">
                 <span>
-                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <button type="submit" style="border:0; background-color:#F9F9F9"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </span>
                 <div></div>
             </div>
