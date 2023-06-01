@@ -19,7 +19,7 @@
             <div class="cardnum col-lg-3 col-sm-6">
                 <div class="product-card">
                     <div class="product-thumb">
-                        <a href="#"><img src="{{Storage::url($product->img)}}" alt="{{$product->title}}"></a>
+                    <a href="{{route('showProduct',[$product->category['alias'] , $product->id])}}"><img src="{{Storage::url($product->img)}}" alt="{{$product->title}}"></a>
                     </div>
                     <div class="product-details">
                         <h4><a href="#">{{$product->title}}</a></h4>
