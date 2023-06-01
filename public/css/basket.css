@@ -20,9 +20,12 @@ div.thumbnail img {
 /* Стилизация кол-ва товара в корзине*/
 .quantity {
     display: flex;
+    justify-content: center;
 }
 
 .btn {
+
+    width: 150px;
     /* сброс стилей */
     padding: 0;
     border: none;
@@ -99,4 +102,53 @@ div.thumbnail img {
     display: flex;
     justify-content: center;
     text-align: center;
+}
+
+.btnplus {
+    /* сброс стилей */
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    
+    /* сброс браузерных стилей для фокуса */
+    outline: none;
+    
+    /* переопределение стилей для ссылок */
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+  
+    /* небольшие вертикальные отступы */
+    margin: 2px 15px;
+  
+    /* невидимая рамка */
+    border: solid 2px transparent;
+    border-radius: 12px;
+  
+    /* для установки размеров используем паддинги */
+    padding: 0.5em 1em;
+  
+    /* контрастные цвета */
+    color: #ffffff;
+    background-color: #232323;   
+}
+
+.btnplus:active {
+    transform: translateY(1px);
+    filter: saturate(150%);
+}
+  
+.btnplus:hover,
+.btnplus:focus {
+    color: #232323;
+    border-color: currentColor;
+    background-color: white;
+}
+  
+  /* сброс браузерных стилей для фокуса */
+.btnplus::-moz-focus-inner {
+    border: none;
 }

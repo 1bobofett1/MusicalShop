@@ -17,14 +17,6 @@
                 <!-- Product Image -->
                 <div class="col-lg-6">
                     <div class="details_image">
-                        {{-- @php
-                            $image = '';
-                            if(count($item->images) > 0){
-                                $image = $item->images[0]['img'];
-                            } else {
-                                $image = 'no_image.png';
-                            }
-                        @endphp --}}
                         <div class="details_image_large">
                             <img src="{{Storage::url($item->img)}}" alt="{{$item->title}}">
                         </div>
@@ -57,17 +49,8 @@
 
                         <!-- Product Quantity -->
                         <div class="product_quantity_container">
-                            <div class="product_quantity clearfix">
-                                <span>Qty</span>
-                                <input id="quantity_input" type="text" pattern="[0-9]*" value="1">
-                                <div class="quantity_buttons">
-                                    <div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-                                    <div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-                                </div>
-                            </div>
-
                             <form action="{{route('basket-add', $item)}}" method="POST">
-                                <button type="submit" class="btn" role="button">Add to cart</button>
+                                <button type="submit" class="btn" role="button">В корзину</button>
                                 @csrf
                             </form>
                         </div>

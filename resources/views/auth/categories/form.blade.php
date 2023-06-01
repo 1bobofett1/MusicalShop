@@ -25,7 +25,7 @@
                       action="{{ route('categories.store') }}"
                     @endisset
                 >
-                    <div>
+                    <div class="container">
                         @isset($category)
                             @method('PUT')
                         @endisset
@@ -41,26 +41,19 @@
                         <div class="input-group row">
                             <label for="desc" class="col-sm-2 col-form-label">Описание: </label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="desc" id="desc"
-                                       value="@isset($category){{ $category->desc }}@endisset">
+                                <textarea name="desc" id="desc" cols="72"
+                                      rows="7">@isset($category){{ $category->desc }}@endisset</textarea>
                             </div>
                         </div>
                         <br>
                         <div class="input-group row">
                             <label for="alias" class="col-sm-2 col-form-label">Алиас: </label>
                             <div class="col-sm-6">
-							<textarea name="alias" id="alias" cols="72"
-                                      rows="7">@isset($category){{ $category->alias }}@endisset</textarea>
+                                <input type="text" class="form-control" name="alias" id="alias"
+                                value="@isset($category){{ $category->alias }}@endisset">
                             </div>
                         </div>
                         <br>
-                        {{-- <div class="input-group row">
-                            <label for="img" class="col-sm-2 col-form-label">Описание: </label>
-                            <div class="col-sm-6">
-							<textarea name="img" id="img" cols="72"
-                                      rows="7">@isset($category){{ $category->alias }}@endisset</textarea>
-                            </div>
-                        </div> --}}
                         <div class="input-group row">
                             <label for="img" class="col-sm-2 col-form-label">Картинка: </label>
                             <div class="col-sm-10">

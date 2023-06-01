@@ -6,6 +6,10 @@
     @section('title', 'Создать товар')
 @endisset
 
+@section('custom_css')
+    <link rel="stylesheet" type="text/css" href="/css/basket.css">
+@endsection
+
 @section('content')
     <div class="col-md-12">
         @isset($product)
@@ -20,7 +24,7 @@
               action="{{ route('products.store') }}"
             @endisset
         >
-            <div>
+            <div class="container"> 
                 @isset($product)
                     @method('PUT')
                 @endisset

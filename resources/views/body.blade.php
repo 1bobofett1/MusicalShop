@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title-block')SoundSpace - Интернет магазин музыкальных инструментов@endsection
+@section('title')SoundSpace - Интернет магазин музыкальных инструментов@endsection
 
 @section('content')
 
@@ -14,8 +14,7 @@
 
 <section class="main-content">
     <div class="container">
-        <div class="row">
-            
+        <div class="row"> 
             @foreach($products as $product)
             <div class="cardnum col-lg-3 col-sm-6">
                 <div class="product-card">
@@ -25,6 +24,7 @@
                     <div class="product-details">
                         <h4><a href="#">{{$product->title}}</a></h4>
                         <p>{{$product->description}}</p>
+                        <p>Категория - {{$product->category->title}}</p>
                         <div class="product-bottom-details d-flex justify-content-between">
                             @if($product->new_price != null)
                                 <div class="product-price">
